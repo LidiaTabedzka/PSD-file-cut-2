@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css?family=Varela+Round');
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/*Variables*/
+$accent-color: #16a085;
+
+/*Styles for section: header*/
+header {
+    height: 100vh;
+    background-size: cover;
+    color: white;
+    background-image: url('../images/back.jpg'); 
+    background-size: cover; 
+    background-position: bottom;
+}
+.navbar-inverse {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    margin: 30px 0;
+    font-family: 'Varela Round', sans-serif;
+    letter-spacing: 2px;
+    width: 100%;
+    .navbar-nav {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        li {
+            float: none;
+            display: inline-block;
+            width: 19%;
+            a {
+                color: white;
+                transition: 0.3s;
+                &:hover {
+                    color: $accent-color;
+                }
+            }
+        }
+    }
+    .navbar-toggle {
+        border: none;
+        &:hover,
+        &:focus {
+            background-color: $accent-color;
+        }
+    }
+    .navbar-collapse {
+        border: none;
+    }
+}
+.hero {
+    margin-top: 30vh;
+    letter-spacing: 3px;
+    font-family: 'Varela Round', sans-serif;
+    font-weight: bold;
+    button {
+        background-color: $accent-color;
+        border: none;
+        padding: 15px 30px;
+        border-radius: 3px;
+        margin-top: 10px;
+        font-weight: bold;
+        letter-spacing: 2px;
+        transition: 0.3s;
+        &:hover {
+            background-color: white;
+            color: $accent-color;
+        }
+    }
+}
+.social {
+    position: fixed;
+    bottom: 20px;
+    font-size: 30px;
+    width: 100%;
+    .fa {
+        transition: 0.3s;
+        padding: 0 5px;
+        &:hover {
+            color: $accent-color;
+        }
+    }
+}
+
+/*Media queries*/
+@media (max-width: 767px) {
+    /*Styles for section: header*/
+    .navbar-inverse {
+        .navbar-nav li:nth-of-type(3) {
+            display: none;
+        }
+        .navbar-nav li {
+            width: 100%;
+            text-align: center;
+        }
+    }
+    .hero {
+        margin-top: 20vh;
+       h1 {
+           font-size: 40px;
+       } 
+    }
+}
