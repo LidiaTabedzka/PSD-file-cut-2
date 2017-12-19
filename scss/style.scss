@@ -125,13 +125,15 @@ header {
 .design p {
     margin: 20px 0;
     color: #373737;
+    letter-spacing: 1px;
 }
 /*Styles for section: design*/
 .design {
     height: 450px;
     overflow: hidden;
 }
-#carousel {
+#carousel,
+#carousel2 {
     width: 400px;
     overflow: hidden;
     margin: 0 auto;
@@ -144,25 +146,47 @@ header {
             float: left;
             width: 400px;
         }
-    }
-    .arrow {
-        display: inline-block;
-        margin: 0 7px;
-        font-size: 18px;
-        &:hover {
-            cursor: pointer;
-            color: $accent-color;
-        }
     }  
-    #indicators {
-        display: inline-block;
-        margin: 30px 10px 10px 10px;
-        font-weight: bold;
-    } 
+}
+#indicators {
+    display: inline-block;
+    margin: 30px 10px 10px 10px;
+    font-weight: bold;
+} 
+.arrow {
+    display: inline-block;
+    margin: 0 7px;
+    font-size: 18px;
+    &:hover {
+        cursor: pointer;
+        color: $accent-color;
+    }
 }
 /*Styles for section: community*/
 .community {
     background-color: #f5f6f7;
+    .col-md-4 {
+        padding: 20px;
+        h3 {
+            margin-top: 40px;
+        }
+        p {
+            margin: 20px 50px;
+        }
+    }
+}
+#carousel2 {
+    width: 750px;  
+    ul {
+        width: 2250px;
+        li {
+            width: 350px;
+            margin: 0 12.5px;
+            img {
+                width: 100%;
+            }
+        }
+    }
 }
 
 /*Media queries*/
@@ -221,6 +245,38 @@ header {
         text-align: center;
         img {
             width: 100px;
+        }
+    }
+    /*Styles for section: community*/
+    .community {
+        [class^="col"]{
+            width: 100%;
+        }
+        .text-right {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+    }
+    #carousel2 {
+        width: 300px;
+        ul {
+            width: 1800px;
+            li {
+                width: 300px;
+                margin: 0;
+            }
+        }
+    }
+}
+@media (min-width: 992px) and (max-width: 1200px) {
+    /*Styles for section: community*/
+    .community {
+        [class^="col"]{
+            width: 100%;
+        }
+        .text-right {
+            text-align: center;
+            margin-bottom: 10px;
         }
     }
 }

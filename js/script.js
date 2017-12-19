@@ -21,8 +21,7 @@ $(function(){
             carouselList.animate({"marginLeft":-300 * target}, 500);
         } else {
             carouselList.animate({"marginLeft":-400 * target}, 500);
-        }
-               
+        }      
     }
     //Funkcja przesuwająca karuzelę do przodu
     function moveCarousel(){
@@ -60,10 +59,61 @@ $(function(){
         }
         newInterval();
     });
-    //Funkcja do klikania w kółka   
-    carouselIndicatorsItem.click(function(){
-        const target = $(this).index();
-        changeSlide(target);
-        newInterval();
+
+    //druga karuzela
+    var carousel2List = $("#carousel2 ul");
+    var carousel2Item = carousel2List.find("li");
+    var arrow2Right = $("#js-arrow2Right");
+    var arrow2Left = $('#js-arrow2Left');
+
+    var interval2 = setInterval(moveCarousel2, 3000);
+
+    const mq2 = window.matchMedia( "(max-width: 991px)" );
+
+    //Funkcja zerująca interval 
+    function newInterval2(){
+        clearInterval(interval2);
+        interval2 = setInterval(moveCarousel2, 3000);
+    }
+    //Funcja zmieniająca slajd i kółka
+    function changeSlide2(target){
+        carousel2Item.removeClass("active").eq(target).addClass("active");
+        if (mq2.matches) {
+            carousel2List.animate({"marginLeft":-300 * target}, 500);
+        } else {
+            carousel2List.animate({"marginLeft":-375 * target}, 500);
+        }
+    }
+    //Funkcja przesuwająca karuzelę do przodu
+    function moveCarousel2(){
+        var activeItem = carousel2List.find("li.active");
+        var nextItem = activeItem.next();
+        var nextItemIndex = carousel2Item.index(nextItem);
+        
+        if ((nextItemIndex >= 0) && (nextItemIndex < 5) && (!mq2.matches)) {
+            changeSlide2(nextItemIndex);
+        } else if ((nextItemIndex >= 0) && (mq2.matches)){
+            changeSlide2(nextItemIndex);
+        } else {
+            changeSlide2(0);
+        }
+    }
+    //Strzałka przesuwająca karuzelę do przodu
+    arrow2Right.click(function() {
+        moveCarousel2();        
+        newInterval2();
+    });    
+    //Strzałka przesuwająca karuzelę do tyłu
+    arrow2Left.click(function(){
+        var activeItem = carousel2List.find("li.active");
+        var prevItem = activeItem.prev();
+        var prevItemIndex = carousel2Item.index(prevItem);
+
+        if (prevItemIndex >= 0) {
+            changeSlide2(prevItemIndex);
+        } else {
+            changeSlide2(5);
+        }
+        newInterval2();
     });
 });
