@@ -4,6 +4,11 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Varela Round', sans-serif;
+}
+.container {
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
 /*Variables*/
 $accent-color: #16a085;
@@ -16,6 +21,7 @@ header {
     background-image: url('../images/back.jpg'); 
     background-size: cover; 
     background-position: bottom;
+    position: relative;
 }
 .navbar-inverse {
     background-color: transparent;
@@ -23,7 +29,6 @@ header {
     color: white;
     font-weight: bold;
     font-size: 18px;
-    margin: 30px 0;
     font-family: 'Varela Round', sans-serif;
     letter-spacing: 2px;
     width: 100%;
@@ -58,28 +63,31 @@ header {
 .hero {
     margin-top: 30vh;
     letter-spacing: 3px;
-    font-family: 'Varela Round', sans-serif;
     font-weight: bold;
-    button {
-        background-color: $accent-color;
-        border: none;
-        padding: 15px 30px;
-        border-radius: 3px;
-        margin-top: 10px;
-        font-weight: bold;
-        letter-spacing: 2px;
-        transition: 0.3s;
-        &:hover {
-            background-color: white;
-            color: $accent-color;
-        }
+}
+.hero button,
+.photoapp button,
+.design button {
+    background-color: $accent-color;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 3px;
+    color: white;
+    margin-top: 10px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    transition: 0.3s;
+    &:hover {
+        background-color: white;
+        color: $accent-color;
     }
 }
 .social {
-    position: fixed;
+    position: absolute;
     bottom: 20px;
     font-size: 30px;
     width: 100%;
+    left: 0;
     .fa {
         transition: 0.3s;
         padding: 0 5px;
@@ -87,6 +95,74 @@ header {
             color: $accent-color;
         }
     }
+}
+/*Styles for section: photoapp*/
+.photoapp {
+    background-color: #f5f6f7;
+    letter-spacing: 1px;
+    .container {
+        padding-bottom: 0;
+    }
+    .row {
+        position: relative;
+        .col-md-6 {
+            position: absolute;
+            top: 0;
+            z-index: 100;
+        }
+        .col-md-12 {
+            height: 400px;
+            overflow: hidden;
+            padding-left: 30%;
+        }
+    }  
+}
+.photoapp h3,
+.design h3 {
+    color: $accent-color;
+}
+.photoapp p,
+.design p {
+    margin: 20px 0;
+    color: #373737;
+}
+/*Styles for section: design*/
+.design {
+    height: 450px;
+    overflow: hidden;
+}
+#carousel {
+    width: 400px;
+    overflow: hidden;
+    margin: 0 auto;
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        width: 2000px;
+        li {
+            float: left;
+            width: 400px;
+        }
+    }
+    .arrow {
+        display: inline-block;
+        margin: 0 7px;
+        font-size: 18px;
+        &:hover {
+            cursor: pointer;
+            color: $accent-color;
+        }
+    }  
+    #indicators {
+        display: inline-block;
+        margin: 30px 10px 10px 10px;
+        font-weight: bold;
+    } 
+}
+/*Styles for section: community*/
+.community {
+    background-color: #f5f6f7;
 }
 
 /*Media queries*/
@@ -102,9 +178,49 @@ header {
         }
     }
     .hero {
-        margin-top: 20vh;
+        margin-top: 10vh;
        h1 {
            font-size: 40px;
        } 
+    }
+    /*Styles for section: design*/
+    #carousel {
+        width: 300px;
+        ul {
+            width: 1500px;
+            li {
+                width: 300px;
+            }
+        }
+    }
+}
+@media (max-width: 991px) {
+    /*Styles for section: photoapp*/
+    .photoapp {
+        .container {
+            margin-bottom: 50px;
+        }
+        .row {
+            text-align: center;
+            .col-md-6 {
+                position: relative;
+                margin-bottom: 10px;
+            }
+            .col-md-12 {
+                padding-left: 0;
+                height: auto;
+                img {
+                    width: 300px;
+                }
+            }
+        }
+    }
+    /*Styles for section: design*/
+    .design {
+        height: auto;
+        text-align: center;
+        img {
+            width: 100px;
+        }
     }
 }
