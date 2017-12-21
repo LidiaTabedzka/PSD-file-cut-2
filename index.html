@@ -6,13 +6,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="./css/style.css">
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-        <link rel="stylesheet" type="text/css" href="./css/style.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-localScroll/2.0.0/jquery.localScroll.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.2/jquery.scrollTo.js"></script>
     </head>
     <body>
-        <header class="text-center container-fluid">
+        <header class="text-center container-fluid" id="headerSection">
             <nav class="container navbar navbar-inverse">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
@@ -21,10 +24,11 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
+                    <a class="navbar-brand" href=""><img src="./images/Livello 2.png" alt=""></a>
                 </div>
                 <div class="collapse navbar-collapse" id="navbar-collapse-1">
-                    <ul class="nav navbar-nav text-uppercase">
-                        <li class="text-right"><a href="#">Home</a></li>
+                    <ul class="nav navbar-nav text-uppercase" id="nav">
+                        <li class="text-right"><a href="#headerSection">Home</a></li>
                         <li class="text-right"><a href="#photoappSection">Photoapp</a></li>
                         <li class="text-center"><img src="./images/Livello 2.png" alt=""/></li>
                         <li class="text-left"><a href="#designSection">Design</a></li>
@@ -32,10 +36,10 @@
                     </ul>
                 </div>
             </nav>
-            <div class="hero">
-                <h1 class="text-uppercase">Your life, a photo</h1>
+            <div class="hero" id="hero">
+                <h1 class="text-uppercase">Your life , a photo</h1>
                 <p>print your life in a simple photo</p>
-                <button class="text-uppercase">Get started</button>
+                <a href="#photoappSection"><button class="text-uppercase">Get started</button></a>
             </div>
             <div class="social">
                 <i class="fa fa-twitter" aria-hidden="true"></i>
@@ -64,26 +68,30 @@
                         <img src="images/iphone.png" alt=""/>
                     </div>
                     <div class="col-lg-6 col-md-8 col-sm-12">
-                        <h3 class="text-uppercase text-center">Design</h3>
                         <div id="carousel">
                             <ul>
                                 <li class="active">
+                                    <h3 class="text-uppercase">Design</h3>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean fermentum dui mi, <strong>eu egestas est</strong> vehicula sit amet. Nulla facilisi. Aenean enim lacus, aliquet vitae sodales vel, scelerisque sed ante. Maecenas eget justo a erat efficitur ultrices. Suspendisse dapibus augue arcu, vitae finibus magna sollicitudin sed.</p>
                                     <button class="text-uppercase">Learn more</button>
                                 </li>
                                 <li>
+                                    <h3 class="text-uppercase">Design</h3>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean fermentum dui mi, <strong>eu egestas est</strong> vehicula sit amet. Nulla facilisi. Aenean enim lacus, aliquet vitae sodales vel, scelerisque sed ante. Maecenas eget justo a erat efficitur ultrices. Suspendisse dapibus augue arcu, vitae finibus magna sollicitudin sed.</p>
                                     <button class="text-uppercase">Learn more</button>
                                 </li>
                                 <li>
+                                    <h3 class="text-uppercase">Design</h3>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean fermentum dui mi, <strong>eu egestas est</strong> vehicula sit amet. Nulla facilisi. Aenean enim lacus, aliquet vitae sodales vel, scelerisque sed ante. Maecenas eget justo a erat efficitur ultrices. Suspendisse dapibus augue arcu, vitae finibus magna sollicitudin sed.</p>
                                     <button class="text-uppercase">Learn more</button>
                                 </li>
                                 <li>
+                                    <h3 class="text-uppercase">Design</h3>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean fermentum dui mi, <strong>eu egestas est</strong> vehicula sit amet. Nulla facilisi. Aenean enim lacus, aliquet vitae sodales vel, scelerisque sed ante. Maecenas eget justo a erat efficitur ultrices. Suspendisse dapibus augue arcu, vitae finibus magna sollicitudin sed.</p>
                                     <button class="text-uppercase">Learn more</button>
                                 </li>
                                 <li>
+                                    <h3 class="text-uppercase">Design</h3>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean fermentum dui mi, <strong>eu egestas est</strong> vehicula sit amet. Nulla facilisi. Aenean enim lacus, aliquet vitae sodales vel, scelerisque sed ante. Maecenas eget justo a erat efficitur ultrices. Suspendisse dapibus augue arcu, vitae finibus magna sollicitudin sed.</p>
                                     <button class="text-uppercase">Learn more</button>
                                 </li>
@@ -156,24 +164,24 @@
             <section class="download" id="downloadSection">
                 <div class="container text-center text-uppercase">
                     <h3>Download it</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean fermentum dui mi, <strong>eu egestas est</strong> vehicula sit amet. Nulla facilisi. Aenean enim lacus, aliquet vitae sodales vel, scelerisque sed ante. Maecenas eget justo a erat efficitur ultrices. Suspendisse dapibus augue arcu, vitae finibus magna sollicitudin sed.</p>
-                    <form>
-                            <input type="email" class="col-xs-10 col-md-8" placeholder="APPLE STORE">
-                            <button type="submit" class="col-md-2 col-xs-2"><i class="fa fa-apple" aria-hidden="true"></i></button>
-                    </form>
-                    <form>
-                            <input type="email" class="col-xs-10 col-md-8" placeholder="PLAY STORE">
-                            <button type="submit" class="col-md-2 col-xs-2"><i class="fa fa-android" aria-hidden="true"></i></button>
-                    </form>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean fermentum dui mi, eu egestas est vehicula sit amet. Nulla facilisi. Aenean enim lacus, aliquet vitae sodales vel, scelerisque sed ante. Maecenas eget justo a erat efficitur ultrices. Suspendisse dapibus augue arcu, vitae finibus magna sollicitudin sed.</p>
+                    <div>
+                        <form>
+                                <input type="email" class="col-xs-10 col-md-8" placeholder="APPLE STORE">
+                                <button type="submit" class="col-md-2 col-xs-2"><i class="fa fa-apple" aria-hidden="true"></i></button>
+                        </form>
+                        <form>
+                                <input type="email" class="col-xs-10 col-md-8" placeholder="PLAY STORE">
+                                <button type="submit" class="col-md-2 col-xs-2"><i class="fa fa-android" aria-hidden="true"></i></button>
+                        </form>
+                    </div>
                 </div>
             </section>
         </main>
         <footer class="container">
             <div class="row">
                 <div class="col-xs-9">
-                    <div class="text-uppercase footer-div">credits</div>
-                    <div class="text-uppercase footer-div">privacy</div>
-                    <div class="text-uppercase footer-div">our teams</div>
+                    <div class="text-uppercase footer-div">credits <span class="accent-color">|</span> privacy <span class="accent-color">|</span> our teams</div>
                     <p>Copyright by phototime - all right reserved</p>
                 </div>
                 <div class="col-xs-3 text-right">
@@ -181,6 +189,12 @@
                 </div>
             </div>
         </footer>
+        <script type="text/javascript">
+            $(document).ready(function() {
+               $('#nav').localScroll({duration:800});
+               $('#hero').localScroll({duration:800});
+            });
+        </script>
         <script type="text/javascript" src="js/script.js"></script>
     </body>
 </html>

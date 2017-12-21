@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css?family=Varela+Round');
-
+/*General styles*/
 body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Varela Round', sans-serif;
+    font-family: mainFont;
+    letter-spacing: 2px;
 }
 .container {
     padding-top: 50px;
@@ -12,7 +12,50 @@ body {
 }
 /*Variables*/
 $accent-color: #16a085;
-
+$text-color: #373737;
+$button-hover-color: #13816b;
+@font-face {
+    font-family: mainFont;
+    src: url('../fonts/Gotham Rounded Bold.otf');
+}
+@font-face {
+    font-family: mediumMainFont;
+    src: url('../fonts/Gotham Rounded Medium.otf');
+}
+@font-face {
+    font-family: bookMainFont;
+    src: url('../fonts/Gotham Rounded Book.otf');
+}
+@mixin button {
+    background-color: $accent-color;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 3px;
+    color: white;
+    margin-top: 10px;
+    font-family: inherit;
+    font-size: 12px;
+    letter-spacing: 2px;
+    transition: 0.3s;
+    &:hover {
+        background-color: $button-hover-color;
+        color: white;
+    }
+}
+@mixin placeholder($color) {
+    &::-webkit-input-placeholder {
+        color: $color;
+    }
+    &::-moz-placeholder {
+        color: $color;
+    }
+    &:-moz-placeholder {
+        color: $color;
+    }
+    &:-ms-input-placeholder {
+        color: $color;
+    }
+}
 /*Styles for section: header*/
 header {
     height: 100vh;
@@ -26,12 +69,12 @@ header {
 .navbar-inverse {
     background-color: transparent;
     border: none;
-    color: white;
-    font-weight: bold;
-    font-size: 18px;
-    font-family: 'Varela Round', sans-serif;
-    letter-spacing: 2px;
+    color: inherit;
+    font-size: 16px;
     width: 100%;
+   .navbar-brand {
+        display: none;
+    }
     .navbar-nav {
         width: 100%;
         margin: 0;
@@ -41,7 +84,7 @@ header {
             display: inline-block;
             width: 19%;
             a {
-                color: white;
+                color: inherit;
                 transition: 0.3s;
                 &:hover {
                     color: $accent-color;
@@ -58,28 +101,20 @@ header {
     }
     .navbar-collapse {
         border: none;
+        box-shadow: none;
     }
 }
 .hero {
     margin-top: 30vh;
-    letter-spacing: 3px;
-    font-weight: bold;
-}
-.hero button,
-.photoapp button,
-.design button {
-    background-color: $accent-color;
-    border: none;
-    padding: 15px 30px;
-    border-radius: 3px;
-    color: white;
-    margin-top: 10px;
-    font-weight: bold;
-    letter-spacing: 2px;
-    transition: 0.3s;
-    &:hover {
-        background-color: white;
-        color: $accent-color;
+    h1 {
+        letter-spacing: 5px;
+    }
+    p {
+        font-family: mediumMainFont;
+        font-size: 16px;
+    }
+    button {
+        @include button;
     }
 }
 .social {
@@ -90,7 +125,6 @@ header {
     left: 0;
     .fa {
         transition: 0.3s;
-        padding: 0 5px;
         &:hover {
             color: $accent-color;
         }
@@ -99,7 +133,6 @@ header {
 /*Styles for section: photoapp*/
 .photoapp {
     background-color: #f5f6f7;
-    letter-spacing: 1px;
     .container {
         padding-bottom: 0;
     }
@@ -116,21 +149,28 @@ header {
             padding-left: 30%;
         }
     }  
+    button {
+        @include button;
+    }
 }
 .photoapp h3,
 .design h3 {
     color: $accent-color;
+    font-size: 18px;
 }
 .photoapp p,
 .design p {
     margin: 20px 0;
-    color: #373737;
-    letter-spacing: 1px;
+    color: $text-color;
+    font-family: bookMainFont;
 }
 /*Styles for section: design*/
 .design {
-    height: 450px;
+    height: 500px;
     overflow: hidden;
+    button {
+        @include button;
+    }
 }
 #carousel,
 #carousel2 {
@@ -145,18 +185,22 @@ header {
         li {
             float: left;
             width: 400px;
+            text-align: center;
+            p, h3 {
+                text-align: left;
+            }
         }
     }  
 }
 #indicators {
     display: inline-block;
+    font-size: 12px;
     margin: 30px 10px 10px 10px;
-    font-weight: bold;
 } 
 .arrow {
     display: inline-block;
     margin: 0 7px;
-    font-size: 18px;
+    font-size: 16px;
     &:hover {
         cursor: pointer;
         color: $accent-color;
@@ -165,13 +209,17 @@ header {
 /*Styles for section: community*/
 .community {
     background-color: #f5f6f7;
+    color: $text-color;
     .col-md-4 {
         padding: 20px;
         h3 {
+            font-size: 16px;
             margin-top: 40px;
         }
         p {
-            margin: 20px 50px;
+            font-family: mediumMainFont;
+            font-size: 10px;
+            margin: 20px 80px;
         }
     }
 }
@@ -197,87 +245,81 @@ header {
     align-items: center;
     justify-content: center;
     color: white;
+    h2 {
+        font-size: 24px;
+        letter-spacing: 4px;
+    }
 }
 form {        
     margin-top: 20px;
     input {
-        height: 50px;
+        height: 60px;
         padding: 10px;
         border: none;
         border-top-left-radius: 3px;
         border-bottom-left-radius: 3px;
-        color: #373737;
+        color: $text-color;
+        letter-spacing: 2px;
+        @include placeholder($text-color);
     }
     button {
-        border: none;
-        background-color: $accent-color;
-        color: white;
-        border-top-right-radius: 3px;
-        border-bottom-right-radius: 3px;
-        font-size: 25px;
-        height: 50px;
-        &:hover {
-            background-color: white;
-            color: $accent-color;
-        }
+        @include button;
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+        font-size: 20px;
+        height: 60px;
+        width: 60px !important;
+        margin-top: 0;
+        padding: 1px 15px;
     }
 }
-/*Styles for section: subscriptions*/
+/*Styles for section: download*/
 .download {
     background-color: #f5f6f7;
+    h3 {
+        font-size: 20px;
+        letter-spacing: 3px;
+    }
     p {
+        font-family: mediumMainFont;
+        font-size: 12px;
         padding: 0 100px 50px 100px;
     }
+    .container div {
+        display: flex;
+        justify-content: center;
+    }
     form {
-        display: inline-block;
-        width: 400px;
+        margin: 20px;
         input {
             background-color: #1abc9c;
+            width: 200px;
             color: white;
-            &:placeholder {
-                color: white;
+            font-size: 16px;
+            @include placeholder(white);
+            &:focus{
+                outline: none;
             }
         }
-        ::-webkit-input-placeholder {
-            color: white;
-        }
-        ::-moz-placeholder {
-            color: white;
-        }
-        :-moz-placeholder {
-            color: white;
-        }
-        :-ms-input-placeholder {
-            color: white;
+        button .fa {
+            font-size: 22px;
         }
     }
 }
 /*Styles for section: footer*/
 footer {
-    font-weight: bold;
+    color: $text-color;
+    font-size: 14px;
     .footer-div {
-        display: inline-block;
-        padding-right: 10px;
         margin-bottom: 10px;
-        border-right: 2px solid $accent-color;
-    }
-    .footer-div:nth-of-type(3) {
-        border: none;
-        padding-left: 10px;
-    }
-    .footer-div:nth-of-type(2) {
-        padding-left: 10px;
+        .accent-color {
+            color: $accent-color;
+        }
     }
 }
 
 /*Media queries*/
 @media (max-width: 500px) {
-    /*Styles for section: subscriptions*/
-    .download {
-        form {
-            width: 300px;
-        }
-    }
     /*Styles for section: footer*/
     footer {
         text-align: center;
@@ -286,6 +328,9 @@ footer {
 @media (max-width: 767px) {
     /*Styles for section: header*/
     .navbar-inverse {
+        .navbar-brand {
+            display: inline-block;
+        }
         .navbar-nav li:nth-of-type(3) {
             display: none;
         }
@@ -295,10 +340,7 @@ footer {
         }
     }
     .hero {
-        margin-top: 10vh;
-       h1 {
-           font-size: 40px;
-       } 
+        margin-top: 7vh;
     }
     /*Styles for section: design*/
     #carousel {
@@ -310,10 +352,14 @@ footer {
             }
         }
     }
-    /*Styles for section: subscriptions*/
+    /*Styles for section: download*/
     .download {
         p {
-            padding: 0 10px 50px 10px;
+            padding: 0 10px 30px 10px;
+        }
+        .container div {
+            flex-direction: column;
+            align-items: center;
         }
     }
 }
@@ -344,6 +390,11 @@ footer {
         text-align: center;
         img {
             width: 100px;
+        }
+    }
+    #carousel ul li {
+        h3, p {
+            text-align: center;
         }
     }
     /*Styles for section: community*/

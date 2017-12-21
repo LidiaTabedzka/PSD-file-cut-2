@@ -60,6 +60,8 @@ $(function(){
         newInterval();
     });
 
+    /////////////////////////////////////////////////////////////////////////////////////////
+
     //druga karuzela
     var carousel2List = $("#carousel2 ul");
     var carousel2Item = carousel2List.find("li");
@@ -90,9 +92,7 @@ $(function(){
         var nextItem = activeItem.next();
         var nextItemIndex = carousel2Item.index(nextItem);
         
-        if ((nextItemIndex >= 0) && (nextItemIndex < 5) && (!mq2.matches)) {
-            changeSlide2(nextItemIndex);
-        } else if ((nextItemIndex >= 0) && (mq2.matches)){
+        if ((nextItemIndex >= 0) && (((nextItemIndex < 5) && !mq2.matches) || mq2.matches)) {
             changeSlide2(nextItemIndex);
         } else {
             changeSlide2(0);
@@ -109,10 +109,12 @@ $(function(){
         var prevItem = activeItem.prev();
         var prevItemIndex = carousel2Item.index(prevItem);
 
-        if (prevItemIndex >= 0) {
-            changeSlide2(prevItemIndex);
-        } else {
+        if ((prevItemIndex < 0) && (!mq2.matches)) {
+            changeSlide2(4);
+        } else if ((prevItemIndex < 0) && (mq2.matches)) {
             changeSlide2(5);
+        } else {
+            changeSlide2(prevItemIndex);
         }
         newInterval2();
     });
